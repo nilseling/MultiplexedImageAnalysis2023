@@ -84,7 +84,23 @@ In the second practical session, we will learn simple operations in FIJI.
 We saw that the previous way of segmenting nucleii did not result in great segmentation efficiency.
 In the next session, we will use Ilastik pixel classification together with watershed-based segmentation to segment whole cells.
 
+### Train an Ilastik pixel-classifier
+
 1. Open Ilastik and create a new Pixel classification project
+2. Under `Input Data` select the previously generated HDF5 file
+3. Under `Feature Selection` select all features
+4. Under `Training` generate three classes: `nucleus`, `cytoplasm`, `background`
+5. Under `Raw Input` you can change the channel that is being displayed
+6. Label pixels as nuclear, cytoplasmic and background
+7. Under `Export Settings` select `Convert to Data Type` --> `integer 16-bit` and press `Renormalize`. Select `Format` --> `tiff`
+8. Under `Batch Processing` click on `Select Raw Data Files...` and select the HDF5 file
+9. Press `Process all files`
+
+### Segment the pixel probabilities using CellProfiler
+
+1. Open `CellProfiler`
+2. Click on `File > Import > Pipeline from File...` and select the `segment_ilastik.cppipe` file.
+3. Follow the instructions in the pipeline file
 
 ## Interactive image analysis with QuPATH
 
