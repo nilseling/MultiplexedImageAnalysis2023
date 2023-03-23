@@ -104,9 +104,43 @@ In the next session, we will use Ilastik pixel classification together with wate
 
 ## Interactive image analysis with QuPATH
 
-Create project
+In the last part of the session, we will use `QuPATH` for cell segmentation, tumor cell classification and detecting marker positivity.
 
-Annotation
+1. Create a `QuPATH` project
+
+- Open `QuPATH`
+- Click on `Create project` and select the `qupath_project` directory
+- Drag and drop the original TIFF image into `QuPATH`
+
+2. Change the channel names
+
+- Click on the channel button
+- Click on `Automate > Show script editor`
+- Write and run a script:
+
+```
+setChannelNames(
+     'PDL1',
+     'CD8',
+     'FoxP3',
+     'CD68',
+     'PD1',
+     'CK',
+     'DAPI',
+     'af'
+)
+```
+
+3. Detect cells
+
+- Select `Annotations` and draw a rectangular annotation around the whole image
+- Click `Analyze > Cell detection > Cell detection` and set a Threshold to 1
+
+4. Tumor classification
+
+- On the left side in the right tab, if you only see the channel names, click the button right next to `Auto set` and select `Reset to default classes`
+- Annotate a `Tumor` and a `Stroma` region
+
 
 Cell detection 
 
