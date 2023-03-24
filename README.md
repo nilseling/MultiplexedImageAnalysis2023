@@ -136,19 +136,30 @@ setChannelNames(
 - Select `Annotations` and draw a rectangular annotation around the whole image
 - Click `Analyze > Cell detection > Cell detection` and set a Threshold to 1
 
+4. Visualize features on the masks
+
+- Click on `Measure > show measurement map`
+- Select the features that you wan to visualize on the images
+
 4. Tumor classification
 
 - On the left side in the right tab, if you only see the channel names, click the button right next to `Auto set` and select `Reset to default classes`
-- Annotate a `Tumor` and a `Stroma` region
+- Calculate more features by clicking `Analyze > Calculate features > Add smoothed features` and select a neighborhood of `50µm`
+- Visualize the smoothed CK mean expression on the segmentation mask
+- Annotate a `Tumor` and a `Stroma` region using the polygon annotation tool
+- Right click on the annotation and set the correct class
+- Click on `Classify > Object classificiation > Train object classifier` and  
+- Save the classifier
 
+5. Train a classifier to detect marker positivity
 
-Cell detection 
+- Click on the button right next to `Auto Set` and select `Populate from image channels`
+- Select the large annotation area
+- Click on `Classify > Object classification > Create single measurement classifier`
+- Select `Channel Filter: CD8` and `Measurement: Cell CD8 mean`
 
-Tumor classification
+6. Hierarchically train the two classifiers
 
-Positivity detection
-
- - Add smoothed features
- - Draw tumor and stroma region and classify cells
- - 
+- Click `Classify > Object classification > Load object classifier` and select both classifier
+- You can now see the number of CD8 cells within the tumor and within the stroma
 
